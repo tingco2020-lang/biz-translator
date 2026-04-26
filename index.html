@@ -557,7 +557,8 @@
       errEl.textContent = `오류: ${err.message}. API 키를 확인해주세요.`;
     } finally {
       sendBtn.disabled = false;
-      helpBtn.disabled = false;
+      if (helpBtn) helpBtn.disabled = false;
+      $('input').focus();
     }
   }
 
