@@ -325,7 +325,7 @@
 
       <div class="input-pill">
         <input type="text" id="input" placeholder="하고싶은 말을 입력해 주세요." autocomplete="off">
-        <button class="send-btn" id="sendBtn" onclick="translate()" aria-label="변환">→</button>
+        <button class="send-btn" id="sendBtn" onclick="runTranslate()" aria-label="변환">→</button>
       </div>
 
       <div class="chip-row">
@@ -336,7 +336,7 @@
         <button class="chip" onclick="useChip(this)">그 사람 일 좀 못해</button>
       </div>
 
-      <button class="help-btn" id="helpBtn" onclick="translate()">도와줄게<span class="arrow">→</span></button>
+      <button class="help-btn" id="helpBtn" onclick="runTranslate()">도와줄게<span class="arrow">→</span></button>
 
       <div class="err" id="err" style="display: none;"></div>
     </div>
@@ -428,7 +428,7 @@
     setTimeout(() => t.classList.remove('show'), 1800);
   }
 
-  function useChip(el) { $('input').value = el.textContent; translate(); }
+  function useChip(el) { $("input").value = el.textContent; runTranslate(); }
 
   function resetToInitial() {
     $('result').classList.remove('visible');
@@ -489,7 +489,7 @@
     showToast('아카이브가 삭제되었습니다');
   }
 
-  async function translate() {
+  async function runTranslate() {
     const text = $('input').value.trim();
     if (!text) return;
 
@@ -563,7 +563,7 @@
   }
 
   $('input').addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); translate(); }
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); runTranslate(); }
   });
   $('keyInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') saveKey();
